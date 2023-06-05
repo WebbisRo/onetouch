@@ -1,0 +1,1029 @@
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="FoundersCard provides its exclusive community of over 100,000 business executives with premier benefits across travel, lifestyle, and business brands." />
+
+    <title>FoundersCard</title>
+    <link rel="stylesheet" media="screen" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://d2q86wmri3hsp2.cloudfront.net/assets/redesign_v3/remove_emojis-366dd5bc164f2d8691273efc4b528726412f19bf67cf0745cfe7837f95b36728.js"></script>
+    <script src="https://d2q86wmri3hsp2.cloudfront.net/assets/redesign_2018-f3d801bcc576103fbb85a79f9ac1a10f2a3816999a05d2bf763e1c0409ae0532.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" media="screen" href="https://d2q86wmri3hsp2.cloudfront.net/assets/bootstrap-datepicker3-fb89bc30106dbcd14ed3aee9201a45158bdef2713466267ffb484dba3df8b4f0.css" />
+    <link rel="stylesheet" media="screen" href="https://d2q86wmri3hsp2.cloudfront.net/assets/redesign_2018-f4f14bb694e9ecabc7da365cd85582e948666d03c1d0831a3a00a4930bfaeeff.css" />
+    <script src="https://d2q86wmri3hsp2.cloudfront.net/assets/ahoy-75314cdb9589826c04522a176ba6a973ffdcb46fd5aef58b7a1bc5497a7bfa7a.js"></script>
+
+<script>
+  // custom ahoy configuration
+  ahoy.configure({ eventsUrl: '/event_data', visitsUrl: '/visit_data' });
+
+  // when the document is ready
+  $(document).ready(function() {
+    // track all events via Ahoy, but wait 0.5 seconds before listening for events since datepicker loads would incorrectly trigger extra events
+    setTimeout(function() {
+      ahoy.trackAll();
+    }, 500);
+  });
+</script>
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="P3bkSGykp0ZOXPNQP8++P8JFS2815UosPdVKb7lYPT0dCQslW1qdiT4HfmAS7BejB3PIg4aQrvdsAI4TEvlBvw==" />
+      <style type="text/css">
+/*
+This CSS resource incorporates links to font software which is
+the valuable copyrighted property of Monotype Imaging and/or
+its suppliers. You may not attempt to copy, install, redistribute, convert,
+modify or reverse engineer this font software. Please contact Monotype Imaging
+with any questions regarding Web Fonts:  http://webfonts.fonts.com
+*/
+@import url("https://fast.fonts.com/t/1.css?apiType=css&projectid=d4523c68-869f-49ea-aecb-56d5756d266e");
+@font-face {
+font-family: "MyHelveticaNeue";
+src: url("/assets/thin.eot?iefix") format("eot");
+font-weight: 100;
+font-style: normal;
+}
+@font-face{
+font-family:"MyHelveticaNeue";
+src:url("/assets/thin.eot?iefix");
+src:url("/assets/thin.woff") format("woff"),url("/assets/thin.ttf") format("truetype"),url("/assets/thin.svg#thin") format("svg");
+font-weight: 100;
+font-style: normal;
+}
+@font-face{
+font-family:"MyHelveticaNeue";
+src:url("/assets/roma.eot?iefix") format("eot");
+font-weight: normal;
+font-style: normal;
+}
+@font-face{
+font-family:"MyHelveticaNeue";
+src:url("/assets/roma.eot?iefix");
+src:url("/assets/roma.woff") format("woff"),url("/assets/roma.ttf") format("truetype"),url("/assets/roma.svg#roma") format("svg");
+font-weight: normal;
+font-style: normal;
+}
+@font-face{
+font-family:"MyHelveticaNeue";
+src:url("/assets/bold.eot?iefix") format("eot");
+font-weight: bold;
+font-style: normal;
+}
+@font-face{
+font-family:"MyHelveticaNeue";
+src:url("/assets/bold.eot?iefix");
+src:url("/assets/bold.woff") format("woff"),url("/assets/bold.ttf") format("truetype"),url("/assets/bold.svg#bold") format("svg");
+font-weight: bold;
+font-style: normal;
+}
+</style>
+
+
+      <script>
+  let birthdateFieldValidationOptions = { all_birthdate_fields_required: true };
+
+  // defines validation options specific to the one-step membership application
+  var one_step_validation_options = {
+    // defines the validation rules for each form input
+    rules: {
+      "membership_application[first_name]": { required: true },
+      "membership_application[last_name]": { required: true },
+      "membership_application[email]": { required: true, email: true},
+      "membership_application[birthdate(3i)]": birthdateFieldValidationOptions,
+      "membership_application[birthdate(2i)]": birthdateFieldValidationOptions,
+      "membership_application[birthdate(1i)]": birthdateFieldValidationOptions,
+      "payment_card[credit_card_number]": { required: { depends: function(){ return parseInt($('#total_charge').data('charge')) !== 0 } } },
+      "payment_card[credit_card_verification_value]": { required: { depends: function(){ return parseInt($('#total_charge').data('charge')) !== 0 } } },
+      "payment_card[month]": { required: { depends: function(){ return parseInt($('#total_charge').data('charge')) !== 0 } } },
+      "payment_card[year]": { required: { depends: function(){ return parseInt($('#total_charge').data('charge')) !== 0 } } },
+      "membership_application[terms_of_service]": { required: true },
+    },
+    // defines the messages to be displayed when the input value is invalid
+    messages: {
+      "membership_application[first_name]": { required: "First name can't be blank" },
+      "membership_application[last_name]": { required: "Last name can't be blank" },
+      "membership_application[email]": { required: "Email can't be blank", email: "Email must contain only 1 '@' symbol and cannot contain commas or spaces"},
+      "payment_card[credit_card_number]": { required: "Card Number can't be blank" },
+      "payment_card[credit_card_verification_value]": { required: "CVV can't be blank" },
+      "payment_card[month]": { required: "Exp. Month can't be blank" },
+      "payment_card[year]": { required: "Exp. Year can't be blank" },
+      "membership_application[terms_of_service]": { required: "Please accept Terms of Service" },
+    }
+  }
+
+
+  // defines validation options specific to step 1 of the membership application
+  var step_1_validation_options = {
+    // group birthdate inputs together
+    groups: {
+      birthdate: "membership_application[birthdate(3i)] membership_application[birthdate(2i)] membership_application[birthdate(1i)]"
+    },
+    // defines the validation rules for each form input
+    rules: {
+      "membership_application[first_name]": { required: true },
+      "membership_application[last_name]": { required: true },
+      "membership_application[email]": { required: true, email: true},
+      "membership_application[phone]": { required: false, matches: /^[\d\-\(\)\.\+\s]*$/,  minlength: 10,  },
+      "membership_application[linked_in_link]": { required: false, minlength: 1 },
+      "membership_application[birthdate(3i)]": birthdateFieldValidationOptions,
+      "membership_application[birthdate(2i)]": birthdateFieldValidationOptions,
+      "membership_application[birthdate(1i)]": birthdateFieldValidationOptions,
+      "membership_application[company_name]": { required: true, company_name_incomplete: true },
+      "membership_application[title_in_company]": { required: true, title_incomplete: true, distinct_company_and_title: true }
+    },
+    // defines the messages to be displayed when the input value is invalid
+    messages: {
+      "membership_application[first_name]": { required: "First name can't be blank" },
+      "membership_application[last_name]": { required: "Last name can't be blank" },
+      "membership_application[email]": { required: "Email can't be blank", email: "Email must contain only 1 '@' symbol and cannot contain commas or spaces"},
+      "membership_application[phone]":  { matches: 'Phone number must be valid', minlength: 'Phone number must be at least 10 digits' },
+      "membership_application[company_name]": { required: "Company Name can't be blank" },
+      "membership_application[title_in_company]": { required: "Title In Company can't be blank" }
+    }
+  }
+
+  // set default behavior for validations on focus out
+  jQuery.validator.defaults.onfocusout = function (element, event) {
+    // get the jquery object
+    var $element = $(element);
+
+    // if this is a birthdate selector that is not the birthdate year and it does not have an error
+    if ($element.hasClass('birthdate-selector') && ($element.attr('id') !== 'membership_application_birthdate_1i') && ($element.parent('.has-error').length < 1)) {
+      // skip the validation on focus out
+      return;
+    } else {
+      // perform the validation
+      return this.element(element);
+    }
+  }
+
+  // adds new custom validation option "matches", which takes a regular expression
+  jQuery.validator.addMethod("matches", function(value, element, pattern) {
+    // initialize the regex
+    var regex = new RegExp(pattern);
+
+    // return true if the value of the element matches the pattern
+    return regex.test(value);
+  });
+
+  // adds new custom validation option "all_birthdate_fields_required"
+  jQuery.validator.addMethod("all_birthdate_fields_required", function(value, element) {
+    // initialize variable
+    var isValid = true;
+    // set isValid to false if any of the birthdate inputs are empty
+    $('.birthdate-selector').each(function() {
+      if($(this).val().length < 1) { isValid = false; };
+    });
+
+    return isValid;
+  // format of the validation message
+  }, jQuery.validator.format("Birthdate can't be blank"));
+
+  // adds new custom validation option "distinct_company_and_title"
+  // element in this instance is "membership_application[title_in_company]"
+  jQuery.validator.addMethod("distinct_company_and_title", function(value, element) {
+    // input is considered valid (return true) if the company name and title are different
+    return ($('#membership_application_company_name').val().toLowerCase() !== $('#membership_application_title_in_company').val().toLowerCase())
+  // format of the validation message
+  }, jQuery.validator.format("Company Name and Title can't be the same"));
+
+  // adds new custom validation option "title_incomplete"
+  // element in this instance is "membership_application[title]"
+  jQuery.validator.addMethod("title_incomplete", function(value, element) {
+    // input is considered valid (return true) if the title is not "Mr", "n/a", and does not start with "19"
+    return (value.toLowerCase() !== 'mr' && value.toLowerCase() !== 'mr.' && value.toLowerCase() !== 'n/a' && value.toLowerCase() !== 'na' && value.toLowerCase().search(/19\d{2}$/) !== 0)
+  // format of the validation message
+  }, jQuery.validator.format("Title is incomplete"));
+
+  // adds new custom validation option "company_name_incomplete"
+  // element in this instance is "membership_application[company_name]"
+  jQuery.validator.addMethod("company_name_incomplete", function(value, element) {
+    // input is considered valid (return true) if the company name is not "Mr", "n/a", and does not start with "19"
+    return (value.toLowerCase() !== 'mr' && value.toLowerCase() !== 'mr.' && value.toLowerCase() !== 'n/a' && value.toLowerCase() !== 'na'&& value.toLowerCase().search(/19\d{2}$/) !== 0)
+  // format of the validation message
+  }, jQuery.validator.format("Company Name is incomplete"));
+
+  // defines validation options specific to step 2 of the membership application
+  var step_2_validation_options = {
+    // defines the validation rules for each form input
+    rules: {
+        "payment_card[address_attributes][country]": { required: true },
+        "payment_card[address_attributes][street_1]": { required: true },
+        "payment_card[address_attributes][street_2]": { required: false, minlength: 1 },
+        "payment_card[address_attributes][city]": { required: true },
+        "payment_card[address_attributes][state]": { required: { depends: function() { return $('#billing_address_country').val() == "US" } } },
+      "payment_card[address_attributes][zip]": { required: true, minlength: { param: 5, depends: function(){ return $('#billing_address_country').val() == "US" } } },
+      "payment_card[credit_card_number]": { required: { depends: function(){ return parseInt($('#total_charge').data('charge')) !== 0 } } },
+      "payment_card[credit_card_verification_value]": { required: { depends: function(){ return parseInt($('#total_charge').data('charge')) !== 0 } } },
+      "payment_card[month]": { required: { depends: function(){ return parseInt($('#total_charge').data('charge')) !== 0 } } },
+      "payment_card[year]": { required: { depends: function(){ return parseInt($('#total_charge').data('charge')) !== 0 } } },
+      "membership_application[promo_code_used]": { required: false, minlength: 1, applied: true },
+      "membership_application[terms_of_service]": { required: true },
+        "membership_application[address_attributes][country]": { required: { depends: function(){ return $('#shipping_address_same_as_billing').not(":checked") } } },
+        "membership_application[address_attributes][business_name]": { required: false, minlength: 1 },
+        "membership_application[address_attributes][street_1]": { required: { depends: function(){ return $('#shipping_address_same_as_billing').not(":checked") } } },
+        "membership_application[address_attributes][street_2]": { required: false, minlength: 1 },
+        "membership_application[address_attributes][city]": { required: { depends: function(){ return $('#shipping_address_same_as_billing').not(":checked") } } },
+        "membership_application[address_attributes][state]": { required: { depends: function(){ return $('#shipping_address_same_as_billing').not(":checked") && ($('#shipping_address_country').val() == "US") } } },
+        "membership_application[address_attributes][zip]": { required: { depends: function(){ return $('#shipping_address_same_as_billing').not(":checked") } }, minlength: { param: 5, depends: function() { return $('#shipping_address_country').val() == "US" } } }
+    },
+    // defines the messages to be displayed when the input value is invalid
+    messages: {
+      "payment_card[address_attributes][country]": { required: "Country can't be blank" },
+      "payment_card[address_attributes][street_1]": { required: "Street Address can't be blank" },
+      "payment_card[address_attributes][city]": { required: "City can't be blank" },
+      "payment_card[address_attributes][state]": { required: "State can't be blank" },
+      "payment_card[address_attributes][zip]": { required: "Zip/Postal Code can't be blank" },
+      "payment_card[credit_card_number]": { required: "Card Number can't be blank" },
+      "payment_card[credit_card_verification_value]": { required: "CVV can't be blank" },
+      "payment_card[month]": { required: "Exp. Month can't be blank" },
+      "payment_card[year]": { required: "Exp. Year can't be blank" },
+      "membership_application[terms_of_service]": { required: "Please accept Terms of Service" },
+      "membership_application[address_attributes][country]": { required: "Country can't be blank" },
+      "membership_application[address_attributes][street_1]": { required: "Street Address can't be blank" },
+      "membership_application[address_attributes][city]": { required: "City can't be blank"},
+      "membership_application[address_attributes][state]": { required: "State can't be blank"},
+      "membership_application[address_attributes][zip]": { required: "Zip/Postal Code can't be blank"}
+    },
+    // defines the validation behavior when a field loses focus
+    onfocusout: function(element) {
+      // if the element is the promo code field
+      if(element.id === 'membership_application_promo_code_used'){
+        // wait half a second before validating
+        setTimeout(function(){ $(element).valid(); }, 500)
+      // otherwise validate immediately
+      } else {
+        $(element).valid();
+      }
+    },
+    // defines the validation behavior when input is entered
+    // this handler only runs after a field has been validated for the first time
+    onkeyup: function(element) {
+      // if the data-valid attribute has been defined (ie, the input has been validated)
+      if (typeof $('#membership_application_email').data('valid') !== 'undefined') {
+        // if the element is the promo code field
+        if(element.id === 'membership_application_promo_code_used'){
+          // don't validate
+          return false;
+        // otherwise validate immediately
+        } else {
+          $(element).valid();
+        }
+      }
+    }
+  }
+
+  // encapsulates default validation options for membership application
+  var default_validation_options = {
+    // defines the container for the error message
+    errorElement: 'h5',
+    // defines the validation behavior when an input is invalid
+    errorPlacement: function(error, element){
+      // Add the `help-block` class to the error element
+      error.addClass("help-block");
+      // Add `has-feedback` class to the parent div.form-group
+      // in order to add icons to inputs
+      element.parents(".form-group").addClass("has-feedback");
+      // if this is the authorize_cc_storage element
+      if (element.prop("id") === "authorize_cc_storage") {
+        // add the error to a custom error container
+        $("#agree-to-cc-storage-error-container").html(error);
+      // if this is a checkbox
+      } else if (element.prop("type") === "checkbox") {
+        error.insertAfter(element.parent("label"));
+      } else if (element.parent('.input-group').length) {
+        error.insertAfter(element.parent());
+      } else {
+        error.appendTo(element.parent());
+      }
+
+      // Add the span element if doesn't exist and apply the icon classes to it.
+      if (!element.next("span")[0]){
+        $("<span class='validation-icon fa fa-times fa-fw form-control-feedback'></span>").insertAfter(element);
+      }
+    },
+    // defines the validation behavior when an input is valid
+    success: function(label, element) {
+      // Add the span element if it doesn't exist and apply the icon classes to it
+      if (!$(element).next("span")[0]){
+        $("<span class='validation-icon fa fa-check fa-fw form-control-feedback'></span>").insertAfter($(element));
+      }
+    },
+    // defines input display behavior when invalid
+    highlight: function(element, errorClass, validClass) {
+      // add data attribute to track validity of field
+      $(element).data('valid', false);
+
+      $(element).parents(".form-group").addClass("has-error").removeClass("has-success");
+      $(element).next("span").addClass("fa-times").removeClass("fa-check");
+    },
+    // defines input display behavior when valid
+    unhighlight: function(element, errorClass, validClass) {
+      // add data attribute to track validity of field
+      $(element).data('valid', true);
+
+      $(element).parents(".form-group").addClass("has-success").removeClass("has-error");
+      $(element).next("span").addClass("fa-check").removeClass("fa-times");
+    }
+  }
+</script>
+
+
+  </head>
+
+  <body class="notranslate" style='padding-top: 57px;'>
+
+      <nav id="navbar" class="navbar navbar-static-top ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a id="navbar-brand" class="navbar-brand" href="/">
+          <img alt="FoundersCard" id="navbar-logo" src="https://d2q86wmri3hsp2.cloudfront.net/assets/FC_logo_gray-13a9c8f66a672ac6079bdbb0c38ea8aa234d63a54fbf67f85ca49e36617792f5.png" />
+      </a>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+    <div class="row text-center" style="margin-top: -7px;">
+      <div class="col-md-12">
+      </div>
+    </div>
+
+    
+<style type="text/css">
+  #exit-overlay-testimonials-row          { display: flex; display: -webkit-flex; flex-wrap: wrap; }
+  #exit-overlay-testimonials-row:before,
+  #exit-overlay-testimonials-row:after    { display: none; }
+  #modal-overlay-content                  { padding: 60px 0; overflow-y: scroll; }
+  #modal-overlay .row                     { padding: 0; }
+
+  .btn-secondary-alt                      { margin-right: 10px; margin-left: 0px; padding: 15px 40px; border-style: none; border-width: 1px; border-color: #fff; border-radius: 5px; background-color: #FFF; -webkit-transition: all 350ms ease; transition: all 350ms ease; color: #000 !important; font-size: 21px; font-weight: 600; width: 450px; }
+  .btn-secondary-alt:hover                { background-color: #FFF; -webkit-transform: translate(0px, -5px); -ms-transform: translate(0px, -5px); transform: translate(0px, -5px); color: #000; }
+  .exit-overlay-testimonial-column        { display: flex; flex-direction: column; align-items: center; }
+  .exit-overlay-testimonial-column div    { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+  .margin-top-50                          { margin-top: 50px; }
+
+  @media (max-width: 991px) {
+    #exit-overlay-testimonials-row        { display: block; }
+
+    .exit-overlay-testimonial-column      { margin-bottom: 20px; }
+  }
+</style>
+
+<div id="modal-overlay" class="modal full-width full-height" style="height: 101%; margin-top: -2px;">
+  <div id="modal-overlay-content" class="modal-content full-width full-height">
+    <div class="container-fluid text-center text-white">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          <h2 style="font-size:36px; font-weight: bold;">What Our Members Are Saying:</h2>
+
+          <div id="exit-overlay-testimonials-row" class="row margin-top-50">
+            <div class="col-sm-4 exit-overlay-testimonial-column">
+              <div>
+                <img style="width: 25px;" src="https://d2q86wmri3hsp2.cloudfront.net/assets/icons/quotes-icon@2x-69fce37d5125f6a616ac416ed0a01cdc2c7737e5ac96f35d0a58b8804be9475b.png" />
+                <h3 style="font-size: 28px;"><strong>Paid For Itself</strong> The First 2 Months</h3>
+              </div>
+
+              <div>
+                <img style="width: 54px;" src="https://d2q86wmri3hsp2.cloudfront.net/assets/people/justin_w-a204728b922fcd4ce95adf0331ae1bbc5dc98e094b98f8de1bf32b9a23ac4926.png" />
+                <h5 style="font-size: 11px;">Justin W, CEO</h5>
+              </div>
+            </div>
+
+            <div class="col-sm-4 exit-overlay-testimonial-column">
+              <div>
+                <img style="width: 25px;" src="https://d2q86wmri3hsp2.cloudfront.net/assets/icons/quotes-icon@2x-69fce37d5125f6a616ac416ed0a01cdc2c7737e5ac96f35d0a58b8804be9475b.png" />
+                <h3 style="font-size: 28px;"><strong>Saved Me Over $8K</strong> on a New Luxury Car</h3>
+              </div>
+
+              <div>
+                <img style="width: 54px;" src="https://d2q86wmri3hsp2.cloudfront.net/assets/people/john_m-21fe67fe97cf262e7a0072e009ac0d0d092fc796f9c46b5bca216f7b3b7eb0e5.png" />
+                <h5 style="font-size: 11px;">John M, Founder</h5>
+              </div>
+            </div>
+
+            <div class="col-sm-4 exit-overlay-testimonial-column">
+              <div>
+                <img style="width: 25px;" src="https://d2q86wmri3hsp2.cloudfront.net/assets/icons/quotes-icon@2x-69fce37d5125f6a616ac416ed0a01cdc2c7737e5ac96f35d0a58b8804be9475b.png" />
+                <h3 style="font-size: 28px;">Offers <strong>10x Value</strong> for a Reasonable Investment</h3>
+              </div>
+
+              <div>
+                <img style="width: 54px;" src="https://d2q86wmri3hsp2.cloudfront.net/assets/people/kathleen_p-c8be33504407a7097e113c135e0437edbd3f0dc304935d97bb020ae34ae0c8ec.png" />
+                <h5 style="font-size: 11px;">Kathleen P, CEO</h5>
+              </div>
+            </div>
+          </div>
+
+          <br>
+          <button id="modal-preview-button" class="btn btn-secondary-alt">PREVIEW 500+ BENEFITS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    // load the modal background image asynchronously
+    loadModalImage();
+
+    var $modalOverlay = $('#modal-overlay');
+
+    // when the preview button is clicked
+    $('#modal-preview-button').on('click', function(e){
+      // hide the modal
+      $modalOverlay.hide();
+    });
+
+    // when the mouse pointer leaves the body
+    $('body').on('mouseleave', function(e){
+      // if the modal has not yet been shown and the view width is greater than 768px and the overlay_promo_code has a value
+      if ((get_overlay_shown_cookie() !== 'true') && ($(window).width() > 768) && (e.clientY <= 0) && ($('#membership_application_overlay_promo_code').val().length > 0)) {
+        // push a visitor event
+        ahoy.track('view', { page: 'membership_application_modal' });
+
+        // set the cookie so the overlay is not shown more than once per application
+        set_overlay_shown_cookie();
+
+        // fade in the modal
+        $modalOverlay.modal({show: false}).fadeIn(1000);
+
+        // apply the overlay promo code to the application
+        apply_overlay_promo_code();
+      }
+    });
+  })
+
+  // apply the overlay promo code to the application
+  function apply_overlay_promo_code() {
+    // copy the value to the promo code hidden field
+    $('#membership_application_promo_code_used').val($('#membership_application_overlay_promo_code').val());
+    // validate the code and provide visual feedback by returning javascript
+    $.ajax({
+      method: 'POST',
+      url: '/apply_promo_code',
+      data: { code: $('#membership_application_promo_code_used').val() },
+      dataType: 'script'
+    });
+  }
+
+  // set the cookie so the overlay is not shown more than once per application
+  function set_overlay_shown_cookie() {
+    // set the cookie to expire 1 month from now
+    document.cookie = "membership_application_overlay_shown=true; expires=Wed, 05 Jul 2023 16:44:27 GMT";
+  }
+
+  // return the value of the overlay_shown cookie
+  function get_overlay_shown_cookie() {
+    // get the name of the cookie key
+    var name = "membership_application_overlay_shown=";
+    // split the contents of the cookie into an array
+    var cookie_array = document.cookie.split(';');
+    // for each key value pair
+    for (var index = 0; index < cookie_array.length; index++) {
+      // get the cookie from the array
+      var cookie = cookie_array[index];
+      // ignore spaces
+      while (cookie.charAt(0) == ' ') cookie = cookie.substring(1, cookie.length);
+      // get the value after 'overlay_shown='
+      if (cookie.indexOf(name) == 0) return cookie.substring(name.length, cookie.length);
+    }
+    // otherwise return a blank string
+    return '';
+  }
+
+  // load the modal image asynchronously
+  function loadModalImage() {
+    // initialize new image
+    var modalImage = new Image;
+    // get the image from the given url
+    modalImage.src = 'https://d2q86wmri3hsp2.cloudfront.net/assets/skyline-background@2x-e35403ea306e5eef2a7fe8602669419ab1cec121c6d62f88ca8d4811021c3906.png';
+    // set the modal's background to the image
+    $('#modal-overlay-content').attr('style', 'background: url('+ modalImage.src +') center center no-repeat; background-size: cover;')
+  }
+</script>
+
+
+<!-- membership_applications/new.html.haml -->
+<div id="membership-application-container" class="container-fluid bg-gray-alt pad-x-60 mobile-pad-0" style="margin-top: -10px; ">
+  <div class="row no-gutter margin-y-30 mobile-margin-0 row-equal-height">
+  <div class="col-xs-4 text-center bg-white border-gray-alt">
+    <div class="row pad-30 tablet-pad-15 mobile-pad-10 no-gutter tablet-no-gutter">
+      <div class="col-sm-4 col-sm-push-8 col-xs-12">
+        <span class="fa fa-check fa-fw step-circle pull-left mobile-no-float bg-blue"></span>
+      </div>
+      <div class="col-sm-8 col-sm-pull-4 col-xs-12 text-center">
+        <h4 class="margin-0 pull-right mobile-no-float step-bar-text"><strong>PERSONAL INFO</strong></h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4 text-center bg-white border-gray-alt">
+    <div class="row pad-30 tablet-pad-15 mobile-pad-10 no-gutter tablet-no-gutter">
+      <div class="col-sm-4 col-sm-push-8 col-xs-12">
+        <span class="fa fa-check fa-fw step-circle pull-left mobile-no-float bg-gray"></span>
+      </div>
+      <div class="col-sm-8 col-sm-pull-4 col-xs-12 text-center">
+        <h4 class="margin-0 pull-right mobile-no-float step-bar-text">
+          <strong>PAYMENT INFO</strong>
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4 text-center bg-white border-gray-alt">
+    <div class="row pad-30 tablet-pad-15 mobile-pad-10 no-gutter tablet-no-gutter">
+      <div class="col-sm-4 col-sm-push-8 col-xs-12">
+        <span class="fa fa-check fa-fw step-circle pull-left mobile-no-float bg-gray"></span>
+      </div>
+      <div class="col-sm-8 col-sm-pull-4 col-xs-12 text-center">
+        <h4 class="margin-0 pull-right mobile-no-float step-bar-text"><strong>CONFIRMATION</strong></h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="row bg-white margin-x-0">
+
+    <div class="mobile-no-border pad-50 mobile-pad-bottom-0 mobile-pad-25 mobile-pad-top-0 center-block" style="max-width: 800px;">
+      <form class="new_membership_application" id="membership_application_form" action="/membership_applications" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="8bYn10cTzDJyBhnMgbdH4AtPz/1wQCf7FqPhZLfIIT7Tyci6cO32/QJdlPyslO58znlMEcM1wyBHdiUYHGldvA==" />
+        
+
+<input id="unfinished_application_token" type="hidden" name="membership_application[token]" />
+<input type="hidden" name="membership_application[promo_code_used]" id="membership_application_promo_code_used" />
+<input type="hidden" name="membership_application[overlay_promo_code]" id="membership_application_overlay_promo_code" />
+
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="col-md-12">
+      <h3 class="semi-bold">THE FC MEMBERSHIP APPLICATION TAKES JUST A FEW MINUTES</h3>
+    
+      <p class="hidden-xs" style="line-height: 21px;">All information will be treated with the strictest confidence and your contact details will never be shared with any third-parties.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <hr class="border-blue">
+    <h4>Personal Information</h4>
+  </div>
+</div>
+
+<div class="row small-gutter">
+  <div class="col-md-6">
+    <div class="form-group">
+      <input placeholder="First Name" class="form-control input-lg" type="text" value="" name="membership_application[first_name]" id="membership_application_first_name" />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <input placeholder="Last Name" class="form-control input-lg" type="text" value="" name="membership_application[last_name]" id="membership_application_last_name" />
+    </div>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <label for="membership_application_email">
+        <h4>Email Address</h4>
+</label>      <div class="form-group">
+        <input placeholder="someone@example.com" class="form-control input-lg" type="text" name="membership_application[email]" id="membership_application_email" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <label for="membership_application_phone">
+        <h4>Phone Number</h4>
+</label>
+      <div class="form-group">
+        <input placeholder="999-999-9999 (optional)" class="form-control input-lg" type="text" name="membership_application[phone]" id="membership_application_phone" />
+      </div>
+    </div>
+  </div>
+
+<div class="row small-gutter">
+    <div class="col-md-6">
+      <label for="membership_application_linked_in_link">
+        <h4>LinkedIn Profile</h4>
+</label>
+      <div class="form-group">
+        <input placeholder="(optional)" class="form-control input-lg" type="text" name="membership_application[linked_in_link]" id="membership_application_linked_in_link" />
+      </div>
+    </div>
+
+  <div class="col-md-6">
+    <label for="membership_application_birthdate">
+      <h4>Date of Birth</h4>
+</label>
+    <div class="form-group">
+      <select id="membership_application_birthdate_2i" name="membership_application[birthdate(2i)]" class="form-control input-lg birthdate-selector" style="display: inline-block;">
+<option value="">Month</option>
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+<select id="membership_application_birthdate_3i" name="membership_application[birthdate(3i)]" class="form-control input-lg birthdate-selector" style="display: inline-block;">
+<option value="">Day</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+<select id="membership_application_birthdate_1i" name="membership_application[birthdate(1i)]" class="form-control input-lg birthdate-selector" style="display: inline-block;">
+<option value="">Year</option>
+<option value="1923">1923</option>
+<option value="1924">1924</option>
+<option value="1925">1925</option>
+<option value="1926">1926</option>
+<option value="1927">1927</option>
+<option value="1928">1928</option>
+<option value="1929">1929</option>
+<option value="1930">1930</option>
+<option value="1931">1931</option>
+<option value="1932">1932</option>
+<option value="1933">1933</option>
+<option value="1934">1934</option>
+<option value="1935">1935</option>
+<option value="1936">1936</option>
+<option value="1937">1937</option>
+<option value="1938">1938</option>
+<option value="1939">1939</option>
+<option value="1940">1940</option>
+<option value="1941">1941</option>
+<option value="1942">1942</option>
+<option value="1943">1943</option>
+<option value="1944">1944</option>
+<option value="1945">1945</option>
+<option value="1946">1946</option>
+<option value="1947">1947</option>
+<option value="1948">1948</option>
+<option value="1949">1949</option>
+<option value="1950">1950</option>
+<option value="1951">1951</option>
+<option value="1952">1952</option>
+<option value="1953">1953</option>
+<option value="1954">1954</option>
+<option value="1955">1955</option>
+<option value="1956">1956</option>
+<option value="1957">1957</option>
+<option value="1958">1958</option>
+<option value="1959">1959</option>
+<option value="1960">1960</option>
+<option value="1961">1961</option>
+<option value="1962">1962</option>
+<option value="1963">1963</option>
+<option value="1964">1964</option>
+<option value="1965">1965</option>
+<option value="1966">1966</option>
+<option value="1967">1967</option>
+<option value="1968">1968</option>
+<option value="1969">1969</option>
+<option value="1970">1970</option>
+<option value="1971">1971</option>
+<option value="1972">1972</option>
+<option value="1973">1973</option>
+<option value="1974">1974</option>
+<option value="1975">1975</option>
+<option value="1976">1976</option>
+<option value="1977">1977</option>
+<option value="1978">1978</option>
+<option value="1979">1979</option>
+<option value="1980">1980</option>
+<option value="1981">1981</option>
+<option value="1982">1982</option>
+<option value="1983">1983</option>
+<option value="1984">1984</option>
+<option value="1985">1985</option>
+<option value="1986">1986</option>
+<option value="1987">1987</option>
+<option value="1988">1988</option>
+<option value="1989">1989</option>
+<option value="1990">1990</option>
+<option value="1991">1991</option>
+<option value="1992">1992</option>
+<option value="1993">1993</option>
+<option value="1994">1994</option>
+<option value="1995">1995</option>
+<option value="1996">1996</option>
+<option value="1997">1997</option>
+<option value="1998">1998</option>
+<option value="1999">1999</option>
+<option value="2000">2000</option>
+<option value="2001">2001</option>
+<option value="2002">2002</option>
+<option value="2003">2003</option>
+<option value="2004">2004</option>
+<option value="2005">2005</option>
+<option value="2006">2006</option>
+<option value="2007">2007</option>
+<option value="2008">2008</option>
+<option value="2009">2009</option>
+<option value="2010">2010</option>
+<option value="2011">2011</option>
+<option value="2012">2012</option>
+<option value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+<option value="2018">2018</option>
+<option value="2019">2019</option>
+<option value="2020">2020</option>
+<option value="2021">2021</option>
+<option value="2022">2022</option>
+<option value="2023">2023</option>
+</select>
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <hr class="border-blue">
+  </div>
+</div>
+
+<div class="row small-gutter">
+  <div class="col-md-6">
+    <label for="membership_application_company_name">
+      <h4>Company Name</h4>
+</label>
+    <div class="form-group">
+      <input placeholder="" class="form-control input-lg" type="text" name="membership_application[company_name]" id="membership_application_company_name" />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="membership_application_title_in_company">
+      <h4>Professional Title</h4>
+</label>
+    <div class="form-group">
+      <input placeholder="" class="form-control input-lg" type="text" name="membership_application[title_in_company]" id="membership_application_title_in_company" />
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <div class="form-group">
+      <input type="submit" name="commit" value="NEXT" class="btn btn-primary btn-large btn-wide input-lg" data-disable-with="NEXT" />
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  // when the document is ready
+  $(document).ready(function() {
+
+    // keep track of the last submitted unfinished application update
+    var last_unfinished_application_form_data = '';
+
+    // keep track of unfinished application timeout
+    var unfinished_application_timeout = null;
+
+    // when any input is unfocused
+    $('#membership_application_form :input').on('blur', function() {
+
+      // if the email field is valid
+      if ($('#membership_application_email').data('valid') === true) {
+        // wait 1 second
+        unfinished_application_timeout = setTimeout(function() {
+          // submit the unfinished application
+          submitUnfinishedApplication();
+        }, 1000);
+      }
+    });
+
+    // submit unfinished application data
+    function submitUnfinishedApplication() {
+      // clear any additional timeouts so that additional simultaneous sends aren't performed
+      clearTimeout(unfinished_application_timeout);
+
+      // get the new form data
+      var current_unfinished_application_form_data = $('#membership_application_form').serialize();
+
+      // exit if the data hasn't changed
+      if (last_unfinished_application_form_data === current_unfinished_application_form_data) {
+        return true;
+      }
+
+      // set the last data to the new form data to prevent double submits
+      last_unfinished_application_form_data = current_unfinished_application_form_data;
+
+      // submit unfinished application
+      $.ajax({
+        method: 'POST',
+        url: '/unfinished_applications/add',
+        data: current_unfinished_application_form_data,
+        dataType: 'json'
+      // when the unfinished application has been submitted successfully
+      }).done(function(data) {
+        // set the hidden token value correctly (doesn't work using .val(), so use .attr() instead)
+        $('#unfinished_application_token').attr('value', data.unfinished_application_token);
+        // set the hidden overlay_promo_code value
+        $('#membership_application_overlay_promo_code').attr('value', data.overlay_promo_code);
+        // set the last data to the new form data which now includes the token
+        last_unfinished_application_form_data = $('#membership_application_form').serialize();
+        // set the header url
+        $('#navbar-brand').attr('href', data.header_url);
+      });
+    }
+
+    // global variable for validator
+    window.membership_application_validator = $('#membership_application_form').validate($.extend(step_1_validation_options, default_validation_options));
+
+
+
+  });
+
+</script>
+
+</form>    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid text-center bg-gray-alt pad-top-60 mobile-pad-0 mobile-margin-top-20 mobile-border-gray-alt">
+  <div class="row pad-y-45 bg-white mobile-pad-0 mobile-pad-top-20">
+    <div class="col-xs-12 col-lg-4">
+  <i class="endorsement-text">"The Elite Black Card."</i><br>
+  <img id="hero-public-quote-cnn" class="endorsements-image" alt="CNN Logo" src="https://d2q86wmri3hsp2.cloudfront.net/assets/home/logos/CNN-black-e5a53cd4401d668fe990f36715a565e17faeed7f49851e072d6d49085b5fad18.png" />
+</div>
+<div class="col-xs-12 col-lg-4 visible-md visible-lg">
+  <i class="endorsement-text">"Soothes Stress with Elite Access."</i><br>
+  <img id="hero-public-quote-wsj" class="endorsements-image" alt="Wall Street Journal Logo" src="https://d2q86wmri3hsp2.cloudfront.net/assets/home/logos/WSJ-black-699b555b9fae5f1e2930a38a6040d7957d212fcdc8f3a5088d546d738ba8f0b4.png" />
+</div>
+<div class="col-xs-12 col-lg-4 visible-md visible-lg" id="hero-public-quote-div-business-insider">
+  <i class="endorsement-text">"Excellent VIP Benefits."</i><br>
+  <img id="hero-public-quote-business-insider" class="endorsements-image" alt="Business Insider Logo" src="https://d2q86wmri3hsp2.cloudfront.net/assets/home/logos/business-insider-black-026e9e029e07ed54ba45e666487b7c9a2fa9a18f6ed4205c82e36c6dcffcc2e5.png" />
+</div>
+
+  </div>
+</div>
+
+
+      <footer class="page-footer bg-black text-center text-white full-width">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 center-block">
+        <p><strong>FOUNDERS</strong>CARD</p>
+        <sub>memberservices@founderscard.com</sub><br>
+        <hr class="section-break section-break-center">
+        <ul class="list-unstyled list-inline">
+          <li><a class="link-unstyled text-white" href="/privacy">PRIVACY</a></li>
+          <li><a class="link-unstyled text-white" href="/partnership">PARTNERSHIP INQUIRIES</a></li>
+          <li><a class="link-unstyled text-white" href="/contact_us">CONTACT US</a></li>
+          <li><a class="link-unstyled text-white" href="/careers">CAREERS</a></li>
+        </ul>
+        <ul id="footer-social-links" class="list-unstyled list-inline margin-y-30">
+          <li><a class="link-unstyled text-white btn-circle bg-blue" href="https://www.facebook.com/FoundersCard/" target="_blank"><span class="fa fa-facebook fa-fw"></span></a></li>
+          <li><a class="link-unstyled text-white btn-circle bg-blue" href="https://twitter.com/founderscard" target="_blank"><span class="fa fa-twitter fa-fw"></span></a></li>
+          <li><a class="link-unstyled text-white btn-circle bg-blue" href="https://www.instagram.com/founderscard/" target="_blank"><span class="fa fa-instagram fa-fw"></span></a></li>
+        </ul>
+        <h5>Copyright © 2023 FoundersCard. All Rights Reserved. 800.963.1988</h5>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    
+      <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '120831438247835');
+fbq('track', 'PageView');
+
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=120831438247835&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+      <!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','o1c2j');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+      <script type="text/javascript">
+_linkedin_partner_id = "1014034";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=1014034&fmt=gif" />
+</noscript>
+
+      <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MNRTGH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MNRTGH');</script>
+<!-- End Google Tag Manager -->
+
+      <!-- Google Code for Remarketing Tag -->
+<!--------------------------------------------------
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+-------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1022521391;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1022521391/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+      
+      
+        <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3391766.js"></script>
+  <!-- End of HubSpot Embed Code -->
+
+
+
+
+
+
+
+
+  </body>
+</html>
